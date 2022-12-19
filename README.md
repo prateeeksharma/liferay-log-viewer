@@ -1,5 +1,5 @@
 
-# Liferay Log Viewer Portlet
+# Liferay 7.4 Log Viewer Portlet
 
 This project aims to provide flexibility to Liferay Admin Users to view Logs from the portal.
 
@@ -27,7 +27,7 @@ Three portal properties can be set:
 
 ## Downloads
 
-Download bundle jar for 7.1.x CE: [com.liferay.log.viewer.portlet-1.0.0.jar](https://github.com/prateeeksharma/liferay-log-viewer/releases/download/v1.0.0/com.liferay.log.viewer.portlet-1.0.0.jar)
+Download bundle jar for 7.4.x CE: [com.liferay.log.viewer.portlet-1.0.0.jar](https://github.com/prateeeksharma/liferay-log-viewer/releases/download/v1.0.0/com.liferay.log.viewer.portlet-1.0.0.jar)
 
 ## References
 
