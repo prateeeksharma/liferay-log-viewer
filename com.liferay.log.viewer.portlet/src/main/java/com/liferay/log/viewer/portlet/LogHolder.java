@@ -27,41 +27,6 @@ public class LogHolder {
 
 	public static synchronized void attach() throws Exception {
 		if (!isAttached()) {
-			/*
-			 * try { final ClassLoader portalClassLoader =
-			 * PortalClassLoaderUtil.getClassLoader(); final Class<?> logger =
-			 * portalClassLoader.loadClass( PortletConstants.LOG4J_LOGGER_CLASS); final
-			 * Object rootLoggerObj = logger.getMethod(
-			 * PortletConstants.GET_ROOT_LOGGER).invoke(null);
-			 * 
-			 * final Class<?> patternLayout = portalClassLoader.loadClass(
-			 * PortletConstants.LOG4J_PATTERN_LAYOUT_CLASS);
-			 * 
-			 * final String pattern = PortletPropsValues.PERMEANCE_LOG_VIEWER_PATTERN;
-			 * 
-			 * final Object patternLayoutObj = patternLayout.getConstructor(
-			 * String.class).newInstance(pattern);
-			 * 
-			 * final CharArrayWriter pwriter = new CharArrayWriter(); viewer = new
-			 * RollingLogViewer(); runnable = new LogRunnable(pwriter, viewer); final Thread
-			 * t = new Thread(runnable); t.start();
-			 * 
-			 * final Class<?> writerAppender = portalClassLoader.loadClass(
-			 * PortletConstants.LOG4J_WRITER_APPENDER_CLASS);
-			 * 
-			 * final Class<?> appender = portalClassLoader.loadClass(
-			 * PortletConstants.LOG4J_APPENDER_CLASS); final Class<?> layout =
-			 * portalClassLoader.loadClass( PortletConstants.LOG4J_LAYOUT_CLASS);
-			 * writerAppenderObj = writerAppender.getConstructor( layout,
-			 * Writer.class).newInstance(patternLayoutObj, pwriter);
-			 * 
-			 * logger.getMethod( PortletConstants.ADD_APPENDER,
-			 * appender).invoke(rootLoggerObj, writerAppenderObj); attached = true; } catch
-			 * (final Exception e) { log.error(e);
-			 * 
-			 * throw e; }
-			 */
-
 			try {
 				final CharArrayWriter pwriter = new CharArrayWriter();
 				viewer = new RollingLogViewer();
@@ -73,9 +38,10 @@ public class LogHolder {
 
 				attached = true;
 			} catch (Exception e) {
-
+				log.warn("Exception in attaching Logger :: ",e);
 			}
-
+		}else{
+			log.warn("Logger is already attached");
 		}
 	}
 
@@ -108,20 +74,11 @@ public class LogHolder {
 				final Configuration config = context.getConfiguration();
 				config.getRootLogger().removeAppender(writerAppenderObj.getName());
 				context.updateLoggers();
-
-				/*
-				 * final ClassLoader portalClassLoader = PortalClassLoaderUtil.getClassLoader();
-				 * final Class<?> logger = portalClassLoader.loadClass(
-				 * PortletConstants.LOG4J_LOGGER_CLASS); final Object rootLoggerObj =
-				 * logger.getMethod( PortletConstants.GET_ROOT_LOGGER).invoke(null); final
-				 * Class<?> appender = portalClassLoader.loadClass(
-				 * PortletConstants.LOG4J_APPENDER_CLASS); logger.getMethod(
-				 * PortletConstants.REMOVE_APPENDER, appender).invoke(rootLoggerObj,
-				 * writerAppenderObj);
-				 */
 			} catch (final Exception e) {
-				log.warn(e);
+				log.warn("Error in Detaching Logger :: ",e);
 			}
+		}else {
+			log.warn("Logger is already detached::");
 		}
 
 		runnable = null;
