@@ -1,0 +1,3 @@
+Bundle-Name: com.liferay.log.viewer.portlet
+Bundle-SymbolicName: com.liferay.log.viewer.portlet
+Bundle-Version: 1.0.0

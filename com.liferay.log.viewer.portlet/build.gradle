@@ -1,0 +1,6 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+
+	compileOnly group: 'com.liferay', name: 'org.apache.logging.log4j.core'
+	compileOnly group: 'com.liferay', name: 'org.apache.logging.log4j'
+}
