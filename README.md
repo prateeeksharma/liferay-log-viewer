@@ -2,8 +2,11 @@
 # Liferay Log Viewer Portlet
 
 This project aims to provide flexibility to Liferay Admin Users to view Logs from the portal.
+
 They don't need to log in to the Liferay Server using putty or any shell to view the logs. Now users with Administrator access can use this app present in the control panel to view the Logs in real-time.
+
 This app uses the Log4j APIs to fetch the portal logs.
+
 Since, Liferay versions later than 7.4 uses Log4j2, therefore this app is only compatible with Liferay 7.4.x versions.
 
 ## Supported Products
