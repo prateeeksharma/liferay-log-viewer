@@ -25,6 +25,10 @@ Three portal properties can be set:
 * *liferay.log.viewer.refreshIntervalMs* to configure the Logs refresh duration on frontend, default "2000l"
 * *liferay.log.viewer.sleepIntervalMs* to configure the Logs fetching duration from Log4j API, default "1000l"
 
+## Downloads
+
+Download bundle jar for 7.4.x CE: [com.liferay.log.viewer.portlet-1.0.0.jar](https://github.com/prateeeksharma/liferay-log-viewer/releases/download/v1.0.0/com.liferay.log.viewer.portlet-1.0.0.jar)
+
 ## References
 
 https://github.com/baxtheman/liferay-log-viewer
